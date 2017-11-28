@@ -55,9 +55,6 @@ public class RedisDao {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
-        }catch (Exception e){
-            System.out.println("连接redis失败");
-        }
             try {
                 String key = "seckill:" + seckill.getSeckillId();
                 byte[] bytes = ProtostuffIOUtil.toByteArray(seckill, schema,
@@ -66,6 +63,9 @@ public class RedisDao {
                 int timeout = 100000;//1小时
                 String result = jedis.setex(key.getBytes(),timeout,bytes);
                 return result;
+            }catch (Exception e){
+                System.out.println("连接redis失败");
+            }
             }catch (Exception e){
                 System.out.println("加入redis失败");
                 e.printStackTrace();
