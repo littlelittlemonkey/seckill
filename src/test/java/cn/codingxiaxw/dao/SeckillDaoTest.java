@@ -1,7 +1,7 @@
 package cn.codingxiaxw.dao;
 
 import cn.codingxiaxw.entity.Seckill;
-import com.sun.xml.internal.rngom.binary.DataExceptPattern;
+//import com.sun.xml.internal.rngom.binary.DataExceptPattern;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

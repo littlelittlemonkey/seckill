@@ -62,11 +62,13 @@ public class SeckillServiceImpl implements SeckillService
         Seckill seckill = redisDao.getSeckill(seckillId);
         if (seckill == null) {
             //2.访问数据库
+            System.out.print("访问数据库");
             seckill = seckillDao.queryById(seckillId);
             if (seckill == null) {//说明查不到这个秒杀产品的记录
                 return new Exposer(false, seckillId);
             }else {
                 //3,放入redis
+                System.out.println("放入redis");
                 redisDao.putSeckill(seckill);
             }
 
